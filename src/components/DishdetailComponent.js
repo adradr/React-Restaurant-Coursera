@@ -6,7 +6,6 @@ class DishDetail extends Component {
     constructor(props) {
         super(props);
 
-
         this.state = {
             selectedDish: null
         }
@@ -29,8 +28,18 @@ class DishDetail extends Component {
             );
     }
 
+    render() {
+        const detail = this.props.dish
+        return (
+            <div className="container">
+                <div className="row">
+                    <div>
+                        {this.renderDish(detail)}
+                    </div>
+                </div>
+            </div>
+        )
+    }
 }
-
-
 
 export default DishDetail;
