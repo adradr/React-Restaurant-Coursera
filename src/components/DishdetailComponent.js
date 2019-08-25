@@ -5,10 +5,6 @@ class DishDetail extends Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            selectedDish: null
-        }
     }
 
     renderDish(dish) {
@@ -28,13 +24,39 @@ class DishDetail extends Component {
             );
     }
 
+    renderComments(dish){
+        const comments = this.props.dish.map((comment) => {
+            return (
+                <div key={comment.comments.id}>
+                    valami
+                </div>
+            );
+        });
+        if (dish != null)
+            return(
+                <div>
+                    <Card>
+                        <h4>Comments!</h4>
+                        {comments}
+                    </Card>
+                </div>
+            );
+        else
+            return(
+                <div></div>
+            );
+    }
+
     render() {
-        const detail = this.props.dish
+        const selected = this.props.dish;
         return (
             <div className="container">
                 <div className="row">
-                    <div>
-                        {this.renderDish(detail)}
+                    <div  className="col-12 col-md-5 m-1">
+                        {this.renderDish(selected)}
+                    </div>
+                    <div  className="col-12 col-md-5 m-1">
+                        {this.renderComments(selected)}
                     </div>
                 </div>
             </div>
